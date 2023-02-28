@@ -8,5 +8,10 @@ export interface UserFormType {
   password: FormControl<string | null>;
   cPassword: FormControl<string | null>;
   gender: FormControl<string | null>;
-  sports: FormArray<FormGroup | any>;
+  sports: FormArray<FormGroup<SportsType>>;
+}
+
+export interface SportsType{
+  name: FormControl<string | null>;
+  pYear: FormControl<number | null>;
 }

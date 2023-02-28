@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Sport } from '../sports.model';
 import { User } from '../user.model';
 import { UsersService } from '../users.service';
-import { UserFormType } from './formType';
+import { SportsType, UserFormType } from './formType';
 
 @Component({
   selector: 'app-reactive-form',
@@ -23,9 +23,9 @@ export class ReactiveFormComponent implements OnInit, DoCheck {
       password: new FormControl('', [Validators.required]),
       cPassword: new FormControl('', [Validators.required]),
       gender: new FormControl('Male'),
-      sports: new FormArray<any>([]),
+      sports: new FormArray<FormGroup<SportsType>>([])
     });
-   }
+  }
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
